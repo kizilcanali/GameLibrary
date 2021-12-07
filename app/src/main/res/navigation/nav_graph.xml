@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/gamesListFragment">
+
+    <fragment
+        android:id="@+id/gamesListFragment"
+        android:name="com.alikizilcan.gamelib.list.GamesListFragment"
+        android:label="GamesListFragment" >
+        <action
+            android:id="@+id/goToDetail"
+            app:destination="@id/gameDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/gameDetailFragment"
+        android:name="com.alikizilcan.gamelib.detail.GameDetailFragment"
+        android:label="GameDetailFragment" />
+</navigation>
