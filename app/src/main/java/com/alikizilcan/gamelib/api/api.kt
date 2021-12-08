@@ -1,6 +1,7 @@
 package com.alikizilcan.gamelib.api
 
 import android.content.Context
+import com.alikizilcan.gamelib.BASE_URL
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -8,7 +9,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 private var _api: GameLibraryApi? = null
 val api get() = _api!!
 
-const val BASE_URL = "https://api.rawg.io/api"
 
 fun generateApi(){
 
