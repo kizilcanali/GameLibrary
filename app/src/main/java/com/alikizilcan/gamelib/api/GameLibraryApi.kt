@@ -1,7 +1,7 @@
 package com.alikizilcan.gamelib.api
 
 
-import com.alikizilcan.gamelib.API_KEY
+import com.alikizilcan.gamelib.tools.API_KEY
 import com.alikizilcan.gamelib.api.detail.GameDetailResponse
 import com.alikizilcan.gamelib.api.game.GameResponse
 import retrofit2.Response

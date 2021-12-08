@@ -1,7 +1,6 @@
 package com.alikizilcan.gamelib.api
 
-import android.content.Context
-import com.alikizilcan.gamelib.BASE_URL
+import com.alikizilcan.gamelib.tools.BASE_URL
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 

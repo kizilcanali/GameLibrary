@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
+    <data>
+        <variable
+            name="viewModel"
+            type="com.alikizilcan.gamelib.ui.detail.list.GameListViewModel" />
+    </data>
 
 <androidx.constraintlayout.widget.ConstraintLayout
 
@@ -7,7 +12,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".list.GamesListFragment">
+    tools:context=".ui.detail.list.GamesListFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/gamesRecyclerView"

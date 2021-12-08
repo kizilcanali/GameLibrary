@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/gamesListFragment"
-        android:name="com.alikizilcan.gamelib.list.GamesListFragment"
+        android:name="com.alikizilcan.gamelib.ui.detail.list.GamesListFragment"
         android:label="GamesListFragment" >
         <action
             android:id="@+id/goToDetail"
@@ -14,6 +14,6 @@
     </fragment>
     <fragment
         android:id="@+id/gameDetailFragment"
-        android:name="com.alikizilcan.gamelib.detail.GameDetailFragment"
+        android:name="com.alikizilcan.gamelib.ui.detail.GameDetailFragment"
         android:label="GameDetailFragment" />
 </navigation>
