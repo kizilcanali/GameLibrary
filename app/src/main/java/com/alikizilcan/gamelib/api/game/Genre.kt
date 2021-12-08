@@ -1,5 +1,7 @@
 package com.alikizilcan.gamelib.api.game
 
+import com.google.gson.annotations.SerializedName
+
 data class Genre(
-    val genreName: String,
+    @SerializedName("name") val genreName: String,
 )
