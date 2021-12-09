@@ -7,6 +7,7 @@ import androidx.navigation.fragment.NavHostFragment
 import com.alikizilcan.gamelib.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
+
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 

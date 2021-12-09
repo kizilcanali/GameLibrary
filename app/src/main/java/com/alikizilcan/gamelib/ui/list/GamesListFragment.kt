@@ -10,19 +10,16 @@ import com.alikizilcan.gamelib.databinding.FragmentGamesListBinding
 import com.alikizilcan.gamelib.domain.model.Game
 import com.alikizilcan.gamelib.infra.bases.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 @AndroidEntryPoint
-class GamesListFragment {
-
-    
+class GamesListFragment : BaseFragment() {
 
     private var _binding: FragmentGamesListBinding? = null
     val binding get() = _binding!!
 
-    //override val viewModel: GameListViewModel by viewModels()
+    override val viewModel: GameListViewModel by viewModels()
 
-
+    private val gameListAdapter = GamesListAdapter()
     //define viewpager
 
     override fun onCreateView(
@@ -38,9 +35,11 @@ class GamesListFragment {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         binding.apply {
-
+            gamesRecyclerView.adapter = gameListAdapter
+            viewModel!!.gamesList.observe(viewLifecycleOwner){
+                gameListAdapter.submitList(it.results)
+            }
         }
 
 
