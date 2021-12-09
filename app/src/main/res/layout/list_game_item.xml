@@ -47,13 +47,16 @@
                     app:layout_constraintTop_toBottomOf="@id/imageView"
                     tools:text="Grand Theft Auto V" />
 
+                <!--
                 <TextView
+                    android:id="@+id/ratingText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end|center_vertical"
-                    android:text="@{baseModel.rating}"
+                    android:text="@{baseModel.rating.toString()}"
                     android:textSize="26sp"
                     tools:text="4.6" />
+                 -->
             </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
