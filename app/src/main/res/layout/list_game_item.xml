@@ -58,7 +58,7 @@
 
                 <TextView
                     android:id="@+id/ratingText"
-                    textField="@{baseModel.rating}"
+                    android:text="@{baseModel.rating}"
                     android:layout_width="20sp"
                     android:layout_height="19sp"
                     android:layout_gravity="end|center_vertical"

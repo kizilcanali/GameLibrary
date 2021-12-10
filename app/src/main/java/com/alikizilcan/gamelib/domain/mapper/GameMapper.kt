@@ -20,7 +20,7 @@ class GameMapper @Inject constructor(){
                 id = it.id.orZero(),
                 name = it.name.orEmpty(),
                 image = it.image.orEmpty(),
-                rating = it.rating.orZero()
+                rating = it.rating.toString().orEmpty()
             )
         }
 }

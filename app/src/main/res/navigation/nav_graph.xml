@@ -9,11 +9,16 @@
         android:name="com.alikizilcan.gamelib.ui.list.GamesListFragment"
         android:label="GamesListFragment" >
         <action
-            android:id="@+id/goToDetail"
+            android:id="@+id/goGameListToGameDetail"
             app:destination="@id/gameDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/gameDetailFragment"
         android:name="com.alikizilcan.gamelib.ui.detail.GameDetailFragment"
-        android:label="GameDetailFragment" />
+        android:label="GameDetailFragment" >
+        <argument
+            android:name="gameId"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
 </navigation>

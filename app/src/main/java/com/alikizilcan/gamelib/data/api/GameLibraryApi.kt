@@ -15,7 +15,7 @@ interface GameLibraryApi{
         @Query("key") key: String = API_KEY
     ) : GamesResponse
 
-    @GET("/games/{id}")
+    @GET("games/{id}")
     suspend fun getGameById(
         @Path("id") id: Int,
         @Query("key") key: String = API_KEY

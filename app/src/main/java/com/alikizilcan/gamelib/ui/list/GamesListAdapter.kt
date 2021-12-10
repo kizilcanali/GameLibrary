@@ -16,6 +16,10 @@ class GamesListAdapter : ListAdapter<Game, GamesListAdapter.GameHolder>(DIFF_CAL
         fun bind(game: Game){
             binding.baseModel = game
             binding.executePendingBindings()
+
+            binding.root.setOnClickListener {
+                itemClickListener(game)
+            }
         }
     }
 

@@ -1,26 +1,38 @@
 package com.alikizilcan.gamelib.ui.detail
 
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.navArgs
 import com.alikizilcan.gamelib.R
+import com.alikizilcan.gamelib.databinding.FragmentGameDetailBinding
+import com.alikizilcan.gamelib.domain.GameDetailUseCase
+import com.alikizilcan.gamelib.infra.bases.BaseFragment
+import com.alikizilcan.gamelib.infra.bases.BaseViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
 
-class GameDetailFragment : Fragment() {
+@AndroidEntryPoint
+class GameDetailFragment : BaseFragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    private var _binding: FragmentGameDetailBinding? = null
+    val binding get() = _binding!!
 
-    }
+    override val viewModel: GameDetailViewModel by viewModels()
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_game_detail, container, false)
+        _binding = FragmentGameDetailBinding.inflate(inflater, container, false)
+        binding.viewModel = viewModel
+        binding.lifecycleOwner = viewLifecycleOwner
+        return binding.root
     }
 
 }

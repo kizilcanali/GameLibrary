@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.alikizilcan.gamelib.domain.GameUseCase
+import com.alikizilcan.gamelib.domain.model.Game
 import com.alikizilcan.gamelib.domain.model.Games
 import com.alikizilcan.gamelib.infra.Resource
 import com.alikizilcan.gamelib.infra.bases.BaseViewModel
@@ -21,6 +22,11 @@ class GameListViewModel @Inject constructor(private val gameUseCase: GameUseCase
 
     init {
         fetchAllGames()
+    }
+
+    val itemClickListener: (Game) -> Unit = {
+        val action = GamesListFragmentDirections.goGameListToGameDetail(it.id)
+        navigation.navigate(action)
     }
 
     private fun fetchAllGames(){
