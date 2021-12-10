@@ -1,6 +1,7 @@
 package com.alikizilcan.gamelib.infra
 
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 
@@ -13,4 +14,9 @@ fun imageUrl(view: ImageView, imageUrl: String){
                 .into(view)
         }
     }
+}
+
+@BindingAdapter("textField")
+fun textDouble(view: TextView, info:Double){
+    view.setText(info.toString())
 }

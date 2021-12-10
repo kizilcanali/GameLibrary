@@ -10,7 +10,7 @@ import retrofit2.http.Query
 
 interface GameLibraryApi{
 
-    @GET("/games")
+    @GET("games")
     suspend fun listAllGames(
         @Query("key") key: String = API_KEY
     ) : GamesResponse

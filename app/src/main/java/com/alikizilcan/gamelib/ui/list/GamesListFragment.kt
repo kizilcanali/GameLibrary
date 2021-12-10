@@ -37,6 +37,7 @@ class GamesListFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.apply {
             gamesRecyclerView.adapter = gameListAdapter
+
             viewModel!!.gamesList.observe(viewLifecycleOwner){
                 gameListAdapter.submitList(it.results)
             }

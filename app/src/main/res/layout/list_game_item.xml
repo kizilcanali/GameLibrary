@@ -8,11 +8,15 @@
             type="com.alikizilcan.gamelib.domain.model.Game" />
     </data>
 
-    <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    <com.google.android.material.card.MaterialCardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_margin="5dp"
+        android:backgroundTint="#474646"
+        app:cardCornerRadius="20dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -23,7 +27,7 @@
                 android:id="@+id/imageView"
                 imageUrl="@{baseModel.image}"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="150dp"
                 android:adjustViewBounds="true"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:src="@tools:sample/avatars" />
@@ -32,8 +36,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:padding="10dp"
-                app:layout_constraintTop_toBottomOf="@id/imageView">
+                android:layout_marginTop="8dp"
+                android:paddingHorizontal="6dp"
+                app:layout_constraintTop_toBottomOf="@id/imageView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                >
 
                 <TextView
                     android:id="@+id/gameNameText"
@@ -42,21 +50,27 @@
                     android:layout_gravity="start|center_vertical"
                     android:layout_weight="1"
                     android:text="@{baseModel.name}"
-                    android:textAppearance="?attr/textAppearanceHeadline6"
-                    android:textSize="26sp"
-                    app:layout_constraintTop_toBottomOf="@id/imageView"
-                    tools:text="Grand Theft Auto V" />
+                    tools:text="Grand Theft Auto V"
+                    android:maxLines="2"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    />
 
-                <!--
                 <TextView
                     android:id="@+id/ratingText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    textField="@{baseModel.rating}"
+                    android:layout_width="20sp"
+                    android:layout_height="19sp"
                     android:layout_gravity="end|center_vertical"
-                    android:text="@{baseModel.rating.toString()}"
-                    android:textSize="26sp"
-                    tools:text="4.6" />
-                 -->
+                    tools:text="4.6"
+                    android:textColor="@color/white"/>
+                <ImageView
+                    android:id="@+id/starImage"
+                    android:layout_width="18dp"
+                    android:layout_height="19dp"
+                    android:src="@drawable/star"
+                    app:tint="#FFEB3B"
+                    />
             </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
