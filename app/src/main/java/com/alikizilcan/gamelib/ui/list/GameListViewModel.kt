@@ -28,7 +28,7 @@ class GameListViewModel @Inject constructor(private val gameUseCase: GameUseCase
             gameUseCase.listAllGames().collect { resource ->
                 when(resource){
                     is Resource.Success -> {
-                        _gamesList.value = resource.data
+                        _gamesList.value = resource.data!!
                     }
                     is Resource.Error -> {
                         Log.i("ERROR", resource.exception?.message.orEmpty())
