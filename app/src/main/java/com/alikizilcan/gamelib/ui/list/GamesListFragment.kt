@@ -9,6 +9,7 @@ import com.alikizilcan.gamelib.R
 import com.alikizilcan.gamelib.databinding.FragmentGamesListBinding
 import com.alikizilcan.gamelib.domain.model.Game
 import com.alikizilcan.gamelib.infra.bases.BaseFragment
+import com.alikizilcan.gamelib.ui.viewpager.ListViewPagerAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -20,7 +21,7 @@ class GamesListFragment : BaseFragment() {
     override val viewModel: GameListViewModel by viewModels()
 
     private val gameListAdapter = GamesListAdapter()
-    //define viewpager
+    private val gamePagerAdapter = ListViewPagerAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,12 +37,18 @@ class GamesListFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.apply {
+
             gamesRecyclerView.adapter = gameListAdapter
+            viewPager.adapter = gamePagerAdapter
+            viewPagerCircleIndicator.setViewPager(viewPager)
+
             viewModel!!.gamesList.observe(viewLifecycleOwner){
                 gameListAdapter.submitList(it.results)
+                gamePagerAdapter.submitList(it.results)
             }
         }
         gameListAdapter.itemClickListener = viewModel.itemClickListener
+        gamePagerAdapter.itemClickListener = viewModel.itemClickListener
     }
 
 }

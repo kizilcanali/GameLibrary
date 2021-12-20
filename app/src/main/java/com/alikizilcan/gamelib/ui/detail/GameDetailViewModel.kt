@@ -29,6 +29,7 @@ class GameDetailViewModel @Inject constructor(
 
     init {
         fetchGame()
+
     }
 
     private fun fetchGame(){
