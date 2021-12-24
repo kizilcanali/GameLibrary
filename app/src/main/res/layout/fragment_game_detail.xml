@@ -29,6 +29,21 @@
             android:textColor="@color/white"
             android:text="@{viewModel.game.name}"
             />
+
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/imageViewFavoriteIcon"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:button="@drawable/favorite_icon"
+            android:checked="@{viewModel.isFav}"
+            android:onClick="@{() -> viewModel.addFavorite()}"
+            android:buttonTint="#F44336"
+            app:layout_constraintEnd_toStartOf="@id/gameRatingText"
+            app:layout_constraintTop_toTopOf="@id/gameRatingText"
+            app:layout_constraintBottom_toBottomOf="@id/gameRatingText"
+            app:layout_constraintStart_toEndOf="@id/gameName"
+            />
+
         <TextView
             android:id="@+id/gameRatingText"
             android:layout_width="25sp"

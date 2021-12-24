@@ -5,6 +5,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.alikizilcan.gamelib.data.local.model.GameEntity
+import javax.inject.Singleton
 
 
 @Dao
@@ -21,7 +22,4 @@ interface GameDao {
 
     @Query("SELECT * FROM games WHERE id = :id")
     suspend fun getGameById(id: Int): GameEntity
-
-
-
 }

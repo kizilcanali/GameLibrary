@@ -2,8 +2,11 @@ package com.alikizilcan.gamelib
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.navigation.NavController
+import androidx.navigation.NavDestination
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
 import com.alikizilcan.gamelib.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -23,6 +26,15 @@ class MainActivity : AppCompatActivity() {
             .findFragmentById(R.id.navHostContainer) as NavHostFragment
 
         navController = navHostFragment.navController
+
+        binding.bottomNavigation.setupWithNavController(navController)
+        navController.addOnDestinationChangedListener{_, navDestination: NavDestination, _ ->
+            if(navDestination.id == R.id.gameDetailFragment){
+                binding.bottomNavigation.visibility = View.GONE
+            } else {
+                binding.bottomNavigation.visibility = View.VISIBLE
+            }
+        }
 
 
     }

@@ -5,9 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import com.alikizilcan.gamelib.R
 import com.alikizilcan.gamelib.databinding.FragmentGamesListBinding
-import com.alikizilcan.gamelib.domain.model.Game
 import com.alikizilcan.gamelib.infra.bases.BaseFragment
 import com.alikizilcan.gamelib.ui.viewpager.ListViewPagerAdapter
 import dagger.hilt.android.AndroidEntryPoint
@@ -43,8 +41,8 @@ class GamesListFragment : BaseFragment() {
             viewPagerCircleIndicator.setViewPager(viewPager)
 
             viewModel!!.gamesList.observe(viewLifecycleOwner){
-                gameListAdapter.submitList(it.results)
-                gamePagerAdapter.submitList(it.results)
+                gameListAdapter.submitList(it)
+                gamePagerAdapter.submitList(it)
             }
         }
         gameListAdapter.itemClickListener = viewModel.itemClickListener

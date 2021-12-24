@@ -6,7 +6,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.alikizilcan.gamelib.domain.GameUseCase
 import com.alikizilcan.gamelib.domain.model.Game
-import com.alikizilcan.gamelib.domain.model.Games
 import com.alikizilcan.gamelib.infra.Resource
 import com.alikizilcan.gamelib.infra.bases.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -17,8 +16,8 @@ import javax.inject.Inject
 @HiltViewModel
 class GameListViewModel @Inject constructor(private val gameUseCase: GameUseCase) : BaseViewModel() {
 
-    private var _gamesList: MutableLiveData<Games> = MutableLiveData()
-    val gamesList: LiveData<Games> = _gamesList
+    private var _gamesList: MutableLiveData<List<Game>> = MutableLiveData()
+    val gamesList: LiveData<List<Game>> = _gamesList
 
     init {
         fetchAllGames()

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="baseModel"
+            type="com.alikizilcan.gamelib.domain.model.Game" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        app:cardCornerRadius="20dp"
+        android:backgroundTint="#DAD8D8"
+        android:layout_margin="5dp"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/gameImage"
+                android:layout_width="120dp"
+                android:layout_height="match_parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@tools:sample/backgrounds/scenic"
+                android:scaleType="centerCrop"
+                imageUrl="@{baseModel.image}"
+                />
+
+            <TextView
+                android:id="@+id/gameNameText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/gameImage"
+                app:layout_constraintTop_toTopOf="@id/gameImage"
+                tools:text="NAME OF GAME"
+                android:layout_marginStart="5dp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-light"
+                android:textColor="@color/black"
+                android:text="@{baseModel.name}"
+                />
+            <TextView
+                android:id="@+id/ratingText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/gameImage"
+                app:layout_constraintTop_toBottomOf="@id/gameNameText"
+                android:layout_marginStart="5dp"
+                tools:text="4.5"
+                android:textStyle="bold|italic"
+                android:text="@{baseModel.rating}"
+                />
+
+            <ImageView
+                android:id="@+id/ratingIcon"
+                android:layout_width="20dp"
+                android:layout_height="19dp"
+                android:layout_marginStart="2dp"
+                android:src="@drawable/star"
+                app:layout_constraintBottom_toBottomOf="@id/ratingText"
+                app:layout_constraintStart_toEndOf="@id/ratingText"
+                app:layout_constraintTop_toTopOf="@id/ratingText"
+                app:layout_constraintVertical_bias="0.0"
+                app:tint="#FFEB3B"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>
+
+<!--
+Merhaba Melikenur Hanım,
+Paylaşmış olduğunuz Yetiştirilmek Üzere Android Geliştirici ilanı için sormak istediğim bir soru vardı. İyi çalışmalar.
+Ben Bilgisayar Mühendisliği bölümünden yeni mezun oldum ve iş arama sürecindeyim. Paylaşmış olduğunuz Yetiştirilmek Üzere Android Geliştirici ilanına başvurmak istiyorum çünkü bu eğitimin
+kariyer adımlarım açısından çok faydalı olacağına inanıyorum ancak mezun olduğum için eğitim sürecinde ekonomik olarak kendi ayaklarım üzerinde durmam gerekiyor. Katılımcılara eğitim boyunca maddi olarak bir getiri sunulacak mı bunu merak ettiğim için sizi rahatsız ediyorum.
+İyi günler ve iyi çalışmalar dilerim.
+-->
