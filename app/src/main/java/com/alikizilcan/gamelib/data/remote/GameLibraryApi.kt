@@ -1,9 +1,9 @@
-package com.alikizilcan.gamelib.data.api
+package com.alikizilcan.gamelib.data.remote
 
 
 import com.alikizilcan.gamelib.infra.API_KEY
-import com.alikizilcan.gamelib.data.api.detail.GameDetailResponse
-import com.alikizilcan.gamelib.data.api.game.GamesResponse
+import com.alikizilcan.gamelib.data.remote.models.detail.GameDetailResponse
+import com.alikizilcan.gamelib.data.remote.models.game.GamesResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query

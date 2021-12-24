@@ -1,4 +1,4 @@
-package com.alikizilcan.gamelib.data.api.game
+package com.alikizilcan.gamelib.data.remote.models.game
 
 import com.google.gson.annotations.SerializedName
 

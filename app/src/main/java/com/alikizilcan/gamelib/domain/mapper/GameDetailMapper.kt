@@ -1,6 +1,6 @@
 package com.alikizilcan.gamelib.domain.mapper
 
-import com.alikizilcan.gamelib.data.api.detail.GameDetailResponse
+import com.alikizilcan.gamelib.data.remote.models.detail.GameDetailResponse
 import com.alikizilcan.gamelib.domain.model.GameDetail
 import com.alikizilcan.gamelib.infra.mergeTexts
 import com.alikizilcan.gamelib.infra.orZero

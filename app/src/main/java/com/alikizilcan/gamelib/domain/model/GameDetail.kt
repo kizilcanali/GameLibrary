@@ -1,7 +1,5 @@
 package com.alikizilcan.gamelib.domain.model
 
-import com.alikizilcan.gamelib.data.api.detail.GenreResponse
-
 data class GameDetail (
     val id: Int,
     val name: String,

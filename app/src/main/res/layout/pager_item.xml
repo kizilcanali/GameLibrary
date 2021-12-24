@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable
             name="baseModel"
@@ -21,8 +22,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             tools:src="@tools:sample/backgrounds/scenic"
             android:scaleType="centerCrop"
-            imageUrl="@{baseModel.image}"
-            />
+            imageUrl="@{baseModel.image}" />
 
         <TextView
             android:id="@+id/gameNameText"

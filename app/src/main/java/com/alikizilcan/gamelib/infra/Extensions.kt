@@ -1,7 +1,6 @@
 package com.alikizilcan.gamelib.infra
 
-import android.text.TextUtils.concat
-import com.alikizilcan.gamelib.data.api.detail.GenreResponse
+import com.alikizilcan.gamelib.data.remote.models.detail.GenreResponse
 
 fun Int?.orZero() = this ?: 0
 

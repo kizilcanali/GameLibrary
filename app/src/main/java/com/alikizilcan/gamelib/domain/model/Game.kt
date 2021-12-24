@@ -9,5 +9,6 @@ data class Game(
     val name: String,
     val image: String,
     val rating: String,
+    val favorite: Boolean = false,
 ) : Parcelable
 

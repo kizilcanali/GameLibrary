@@ -1,7 +1,7 @@
-package com.alikizilcan.gamelib.data.api
+package com.alikizilcan.gamelib.data.remote
 
-import com.alikizilcan.gamelib.data.api.detail.GameDetailResponse
-import com.alikizilcan.gamelib.data.api.game.GamesResponse
+import com.alikizilcan.gamelib.data.remote.models.detail.GameDetailResponse
+import com.alikizilcan.gamelib.data.remote.models.game.GamesResponse
 import javax.inject.Inject
 
 class GameDataSource  @Inject constructor(private val gameLibraryApiService: GameLibraryApi){

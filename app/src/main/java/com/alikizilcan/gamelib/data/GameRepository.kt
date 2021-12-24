@@ -1,7 +1,7 @@
 package com.alikizilcan.gamelib.data
 
-import com.alikizilcan.gamelib.data.api.GameDataSource
-import com.alikizilcan.gamelib.data.api.game.GamesResponse
+import com.alikizilcan.gamelib.data.remote.GameDataSource
+import com.alikizilcan.gamelib.data.remote.models.game.GamesResponse
 import com.alikizilcan.gamelib.infra.Resource
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow

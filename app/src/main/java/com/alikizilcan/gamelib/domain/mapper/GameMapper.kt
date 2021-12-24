@@ -1,7 +1,7 @@
 package com.alikizilcan.gamelib.domain.mapper
 
-import com.alikizilcan.gamelib.data.api.game.GameResponse
-import com.alikizilcan.gamelib.data.api.game.GamesResponse
+import com.alikizilcan.gamelib.data.remote.models.game.GameResponse
+import com.alikizilcan.gamelib.data.remote.models.game.GamesResponse
 import com.alikizilcan.gamelib.domain.model.Game
 import com.alikizilcan.gamelib.domain.model.Games
 import com.alikizilcan.gamelib.infra.orZero
@@ -20,7 +20,8 @@ class GameMapper @Inject constructor(){
                 id = it.id.orZero(),
                 name = it.name.orEmpty(),
                 image = it.image.orEmpty(),
-                rating = it.rating.toString().orEmpty()
+                rating = it.rating.toString().orEmpty(),
+                favorite = false
             )
         }
 }
