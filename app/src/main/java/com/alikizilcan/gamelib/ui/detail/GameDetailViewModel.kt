@@ -20,22 +20,24 @@ import javax.inject.Inject
 class GameDetailViewModel @Inject constructor(
     private val gameDetailUseCase: GameDetailUseCase,
     savedStateHandle: SavedStateHandle
-    ) : BaseViewModel() {
+) : BaseViewModel() {
 
     private val _game: MutableLiveData<GameDetail> = MutableLiveData()
     val game: LiveData<GameDetail> = _game
+
+    private var _isFav: MutableLiveData<Boolean> = MutableLiveData()
+    val isFav: LiveData<Boolean> = _isFav
 
     private val gameId: Int = savedStateHandle["gameId"]!!
 
     init {
         fetchGame()
-
     }
 
-    private fun fetchGame(){
+    fun fetchGame() {
         viewModelScope.launch {
             gameDetailUseCase.getGameById(gameId).collect { resource ->
-                when(resource){
+                when (resource) {
                     is Resource.Success -> {
                         _game.value = resource.data!!
                         println(game.value)
@@ -48,6 +50,20 @@ class GameDetailViewModel @Inject constructor(
                     }
                 }
             }
+        }
+    }
+
+    fun getGameByIdFromLocal() {
+        viewModelScope.launch {
+            gameDetailUseCase.getGameByIdFromLocal(gameId).collect {
+                _isFav.value = it.favorite
+            }
+        }
+    }
+
+    fun addFavorite() {
+        viewModelScope.launch {
+            gameDetailUseCase.updateFavorite(!_isFav.value!!, gameId)
         }
     }
 }

@@ -32,7 +32,18 @@ class GameDetailFragment : BaseFragment() {
         _binding = FragmentGameDetailBinding.inflate(inflater, container, false)
         binding.viewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
+        setupVM()
         return binding.root
     }
+
+    private fun setupVM(){
+        with(viewModel){
+            fetchGame()
+            getGameByIdFromLocal()
+
+            //errorlivedata
+        }
+    }
+
 
 }
