@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.alikizilcan.gamelib.databinding.FragmentGamesListBinding
 import com.alikizilcan.gamelib.infra.bases.BaseFragment
-import com.alikizilcan.gamelib.ui.viewpager.ListViewPagerAdapter
+import com.alikizilcan.gamelib.ui.list.viewpager.ListViewPagerAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

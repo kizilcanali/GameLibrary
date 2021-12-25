@@ -1,4 +1,4 @@
-package com.alikizilcan.gamelib.ui.viewpager
+package com.alikizilcan.gamelib.ui.list.viewpager
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

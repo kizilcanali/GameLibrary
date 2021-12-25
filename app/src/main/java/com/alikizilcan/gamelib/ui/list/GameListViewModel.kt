@@ -14,7 +14,9 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class GameListViewModel @Inject constructor(private val gameUseCase: GameUseCase) : BaseViewModel() {
+class GameListViewModel @Inject constructor(
+    private val gameUseCase: GameUseCase
+    ) : BaseViewModel() {
 
     private var _gamesList: MutableLiveData<List<Game>> = MutableLiveData()
     val gamesList: LiveData<List<Game>> = _gamesList
@@ -25,7 +27,7 @@ class GameListViewModel @Inject constructor(private val gameUseCase: GameUseCase
 
     val itemClickListener: (Game) -> Unit = {
         val action = GamesListFragmentDirections.goGameListToGameDetail(it.id)
-        navigation.navigate(action)
+        baseNavigation.navigate(action)
     }
 
     private fun fetchAllGames(){

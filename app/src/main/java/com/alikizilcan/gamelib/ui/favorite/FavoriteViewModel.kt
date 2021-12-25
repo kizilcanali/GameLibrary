@@ -28,8 +28,9 @@ class FavoriteViewModel @Inject constructor(
     }
 
     val itemClickListener: (Game) -> Unit = {
-        val action = FavoriteFragmentDirections.actionFavoriteFragmentToGameDetailFragment(it.id)
-        navigation.navigate(action)
+        println(it.name)
+        val action = FavoriteFragmentDirections.goFavoriteToDetail(it.id)
+        baseNavigation.navigate(action)
     }
 
 }

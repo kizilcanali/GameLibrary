@@ -9,7 +9,9 @@ import com.alikizilcan.gamelib.databinding.FavoriteItemBinding
 import com.alikizilcan.gamelib.domain.model.Game
 
 class FavoriteAdapter() : ListAdapter<Game, FavoriteAdapter.FavoriteGameViewHolder>(DIFF_CALLBACK) {
+
     var itemClickListener: (Game) -> Unit = {}
+
     class FavoriteGameViewHolder(private val binding: FavoriteItemBinding, private val itemClickListener: (Game) -> Unit) : RecyclerView.ViewHolder(binding.root){
         fun bind(game: Game){
             binding.baseModel = game
@@ -22,7 +24,9 @@ class FavoriteAdapter() : ListAdapter<Game, FavoriteAdapter.FavoriteGameViewHold
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavoriteGameViewHolder {
-        val binding = FavoriteItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = FavoriteItemBinding.inflate(
+            LayoutInflater.from(parent.context), parent, false
+        )
         return FavoriteGameViewHolder(binding, itemClickListener)
     }
 

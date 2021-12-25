@@ -8,13 +8,14 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.alikizilcan.gamelib.R
 import com.alikizilcan.gamelib.databinding.FragmentFavoriteBinding
+import com.alikizilcan.gamelib.infra.bases.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class FavoriteFragment : Fragment() {
+class FavoriteFragment : BaseFragment() {
 
     private lateinit var binding: FragmentFavoriteBinding
-    private val viewModel: FavoriteViewModel by viewModels()
+    override val viewModel: FavoriteViewModel by viewModels()
 
     private val favoriteAdapter = FavoriteAdapter()
 
@@ -30,17 +31,18 @@ class FavoriteFragment : Fragment() {
         return binding.root
     }
 
+
     private fun setupView() {
         with(viewModel) {
 
             getFavorites()
 
             binding.favoriteRecyclerView.adapter = favoriteAdapter
-            favoriteAdapter.itemClickListener = itemClickListener
 
             favoriteGames.observe(viewLifecycleOwner) {
                 favoriteAdapter.submitList(it)
             }
+            favoriteAdapter.itemClickListener = itemClickListener
         }
     }
 

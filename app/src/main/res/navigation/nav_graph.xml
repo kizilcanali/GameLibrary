@@ -26,7 +26,7 @@
         android:name="com.alikizilcan.gamelib.ui.favorite.FavoriteFragment"
         android:label="FavoriteFragment" >
         <action
-            android:id="@+id/action_favoriteFragment_to_gameDetailFragment"
+            android:id="@+id/goFavoriteToDetail"
             app:destination="@id/gameDetailFragment" />
     </fragment>
 </navigation>
