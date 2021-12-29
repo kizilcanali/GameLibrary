@@ -12,6 +12,7 @@ class GameEntityToGameMapper @Inject constructor() {
             name = entity.name.orEmpty(),
             image = entity.image.orEmpty(),
             rating = entity.rating.toString().orEmpty(),
+            genres = " ",
             favorite = entity.favorite,
         )
     }

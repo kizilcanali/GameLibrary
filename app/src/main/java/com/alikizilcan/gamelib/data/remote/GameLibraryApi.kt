@@ -12,7 +12,7 @@ interface GameLibraryApi{
 
     @GET("games")
     suspend fun listAllGames(
-        @Query("key") key: String = API_KEY
+        @Query("key") key: String = API_KEY,
     ) : GamesResponse
 
     @GET("games/{id}")

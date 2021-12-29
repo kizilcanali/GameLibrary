@@ -3,6 +3,7 @@ package com.alikizilcan.gamelib.domain.mapper
 import com.alikizilcan.gamelib.data.remote.models.game.GameResponse
 import com.alikizilcan.gamelib.data.remote.models.game.GamesResponse
 import com.alikizilcan.gamelib.domain.model.Game
+import com.alikizilcan.gamelib.infra.mergeTexts
 import com.alikizilcan.gamelib.infra.orZero
 import javax.inject.Inject
 
@@ -15,6 +16,7 @@ class GameMapper @Inject constructor(){
                 name = game.name.orEmpty(),
                 image = game.image.orEmpty(),
                 rating = game.rating.toString().orEmpty(),
+                genres = game.genres.mergeTexts(game.genres),
                 favorite = false
             )
         }

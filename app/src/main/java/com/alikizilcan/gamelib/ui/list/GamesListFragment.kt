@@ -38,11 +38,12 @@ class GamesListFragment : BaseFragment() {
 
             gamesRecyclerView.adapter = gameListAdapter
             viewPager.adapter = gamePagerAdapter
-            viewPagerCircleIndicator.setViewPager(viewPager)
+
 
             viewModel!!.gamesList.observe(viewLifecycleOwner){
                 gameListAdapter.submitList(it)
                 gamePagerAdapter.submitList(it)
+                viewPagerCircleIndicator.setViewPager(viewPager)
             }
         }
         gameListAdapter.itemClickListener = viewModel.itemClickListener

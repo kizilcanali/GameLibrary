@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/gameImage"
             android:layout_width="match_parent"
             android:layout_height="200dp"
@@ -21,9 +21,11 @@
             app:layout_constraintEnd_toEndOf="parent"
             tools:src="@tools:sample/backgrounds/scenic"
             android:scaleType="centerCrop"
-            imageUrl="@{baseModel.image}" />
+            imageUrl="@{baseModel.image}"
+            app:shapeAppearanceOverlay="@style/cornerRadius"
+            />
 
-        <TextView
+        <!--<TextView
             android:id="@+id/gameNameText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -33,10 +35,10 @@
             android:textStyle="bold"
             android:textSize="16sp"
             android:textColor="@color/white"
-            android:layout_marginStart="5dp"
+            android:layout_marginStart="10dp"
             android:textAlignment="center"
             android:text="@{baseModel.name}"
-            />
+            />-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
