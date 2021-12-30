@@ -11,13 +11,15 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.favorite.FavoriteFragment">
+        tools:context=".ui.favorite.FavoriteFragment"
+        android:background="#151515">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/favoriteRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="2"
             tools:listitem="@layout/favorite_item"
             />
 

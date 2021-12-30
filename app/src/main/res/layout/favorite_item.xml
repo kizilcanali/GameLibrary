@@ -11,10 +11,10 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         app:cardCornerRadius="20dp"
-        android:backgroundTint="#DAD8D8"
-        android:layout_margin="5dp"
+        android:backgroundTint="#202020"
+        android:layout_margin="8dp"
         >
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -23,8 +23,8 @@
 
             <ImageView
                 android:id="@+id/gameImage"
-                android:layout_width="120dp"
-                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:src="@tools:sample/backgrounds/scenic"
@@ -34,41 +34,22 @@
 
             <TextView
                 android:id="@+id/gameNameText"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toEndOf="@id/gameImage"
-                app:layout_constraintTop_toTopOf="@id/gameImage"
+                android:maxLines="2"
+                app:layout_constraintTop_toBottomOf="@id/gameImage"
+                app:layout_constraintStart_toStartOf="@id/gameImage"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:gravity="center"
                 tools:text="NAME OF GAME"
-                android:layout_marginStart="5dp"
                 android:textStyle="bold"
-                android:fontFamily="sans-serif-light"
-                android:textColor="@color/black"
+                android:fontFamily="serif-monospace"
+                android:textColor="@color/white"
                 android:text="@{baseModel.name}"
-                />
-            <TextView
-                android:id="@+id/ratingText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintStart_toEndOf="@id/gameImage"
-                app:layout_constraintTop_toBottomOf="@id/gameNameText"
-                android:layout_marginStart="5dp"
-                tools:text="4.5"
-                android:textStyle="bold|italic"
-                android:text="@{baseModel.rating}"
+                android:textSize="16sp"
+                android:layout_marginStart="6dp"
                 />
 
-            <ImageView
-                android:id="@+id/ratingIcon"
-                android:layout_width="20dp"
-                android:layout_height="19dp"
-                android:layout_marginStart="2dp"
-                android:src="@drawable/star"
-                app:layout_constraintBottom_toBottomOf="@id/ratingText"
-                app:layout_constraintStart_toEndOf="@id/ratingText"
-                app:layout_constraintTop_toTopOf="@id/ratingText"
-                app:layout_constraintVertical_bias="0.0"
-                app:tint="#FFEB3B"
-                />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
