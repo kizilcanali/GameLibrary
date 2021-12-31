@@ -28,6 +28,15 @@ class GameDetailViewModel @Inject constructor(
     private var _isFav: MutableLiveData<Boolean> = MutableLiveData()
     val isFav: LiveData<Boolean> = _isFav
 
+    private val _isLoading: MutableLiveData<Boolean> = MutableLiveData()
+    val isLoading: LiveData<Boolean> = _isLoading
+
+    private val _hasNoResult: MutableLiveData<Boolean> = MutableLiveData()
+    val hasNoResult: LiveData<Boolean> = _hasNoResult
+
+    private val _errorState: MutableLiveData<String> = MutableLiveData()
+    val errorState: LiveData<String> = _errorState
+
     private val gameId: Int = savedStateHandle["gameId"]!!
 
     init {
@@ -40,13 +49,14 @@ class GameDetailViewModel @Inject constructor(
                 when (resource) {
                     is Resource.Success -> {
                         _game.value = resource.data!!
-                        println(game.value)
+                        _isLoading.value = false
                     }
                     is Resource.Error -> {
-                        Log.i("ERROR", resource.exception?.message.orEmpty())
+                        _errorState.value = resource.exception?.message ?: ""
+                        _isLoading.value = false
                     }
                     is Resource.Loading -> {
-                        Log.i("LOADING", "LOADING")
+                        _isLoading.value = true
                     }
                 }
             }

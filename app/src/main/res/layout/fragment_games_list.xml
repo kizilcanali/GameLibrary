@@ -44,6 +44,36 @@
         android:layout_marginTop="5dp"
         />
 
+    <androidx.core.widget.ContentLoadingProgressBar
+        android:id="@+id/loadingProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        isVisible="@{viewModel.isLoading}"
+        android:indeterminate="true"
+        style="?android:attr/progressBarStyleLarge"
+        />
+
+    <TextView
+        android:id="@+id/hasNoResultText"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        isVisible="@{viewModel.hasNoResult}"
+        app:layout_constraintTop_toBottomOf="@id/viewPagerCircleIndicator"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@string/hasNoResult"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        />
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

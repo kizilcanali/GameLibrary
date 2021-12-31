@@ -24,8 +24,8 @@
             tools:text="Grand Theft Auto V"
             android:textStyle="bold"
             android:textSize="26sp"
-            android:layout_marginHorizontal="5dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
             android:textColor="@color/white"
             android:text="@{viewModel.game.name}"
             android:fontFamily="serif-monospace"
@@ -105,8 +105,8 @@
             tools:text="Genres: Action, RPG, ETC."
             android:textStyle="bold"
             android:textColor="@color/white"
-            android:textSize="12sp"
-            android:layout_marginTop="5dp"
+            android:textSize="16sp"
+            android:layout_marginTop="7dp"
             android:text="@{viewModel.game.genres}"
             android:fontFamily="serif-monospace"
             />
@@ -114,8 +114,9 @@
             android:id="@+id/metacritic"
             android:layout_width="25sp"
             android:layout_height="24dp"
-            app:layout_constraintTop_toBottomOf="@id/gameImage"
+            app:layout_constraintTop_toTopOf="@id/gameGenres"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/gameGenres"
             android:layout_marginEnd="20dp"
             tools:text="76"
             android:layout_marginTop="10dp"
@@ -150,6 +151,19 @@
                 android:justificationMode="inter_word"
                 />
         </ScrollView>
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            android:id="@+id/loadingProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            isVisible="@{viewModel.isLoading}"
+            android:indeterminate="true"
+            style="?android:attr/progressBarStyleLarge"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

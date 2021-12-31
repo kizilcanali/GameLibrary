@@ -18,8 +18,17 @@ class GameListViewModel @Inject constructor(
     private val gameUseCase: GameUseCase
     ) : BaseViewModel() {
 
-    private var _gamesList: MutableLiveData<List<Game>> = MutableLiveData()
+    private val _gamesList: MutableLiveData<List<Game>> = MutableLiveData()
     val gamesList: LiveData<List<Game>> = _gamesList
+
+    private val _isLoading: MutableLiveData<Boolean> = MutableLiveData()
+    val isLoading: LiveData<Boolean> = _isLoading
+
+    private val _hasNoResult: MutableLiveData<Boolean> = MutableLiveData()
+    val hasNoResult: LiveData<Boolean> = _hasNoResult
+
+    private val _errorState: MutableLiveData<String> = MutableLiveData()
+    val errorState: LiveData<String> = _errorState
 
     init {
         fetchAllGames()
@@ -36,12 +45,15 @@ class GameListViewModel @Inject constructor(
                 when(resource){
                     is Resource.Success -> {
                         _gamesList.value = resource.data!!
+                        _isLoading.value = false
                     }
                     is Resource.Error -> {
-                        Log.i("ERROR", resource.exception?.message.orEmpty())
+                        _errorState.value = resource.exception?.message ?: ""
+                        _isLoading.value = false
                     }
                     is Resource.Loading -> {
-                        Log.i("LOADING", "LOADING")
+                        _isLoading.value = true
+                        _hasNoResult.value = false
                     }
                 }
             }

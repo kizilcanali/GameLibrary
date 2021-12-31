@@ -48,6 +48,7 @@
                 android:text="@{baseModel.name}"
                 android:textSize="16sp"
                 android:layout_marginStart="6dp"
+                android:padding="8dp"
                 />
 
 

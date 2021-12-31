@@ -18,7 +18,6 @@ class GameUseCase @Inject constructor(
     private val gameMapper: GameMapper,
     private val repository: GameRepository,
     private val gameEntityMapper: GameEntityMapper,
-    private val gameEntityToGameMapper: GameEntityToGameMapper
 ) {
 
     fun listAllGames(): Flow<Resource<List<Game>>> {

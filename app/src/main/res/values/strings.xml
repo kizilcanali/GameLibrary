@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">GameLib</string>
-    <!-- TODO: Remove or change this placeholder text -->
+
     <string name="home">Home</string>
     <string name="favorites">Favorites</string>
+    <string name="hasNoResult">Could not find any result!</string>
 </resources>
