@@ -1,6 +1,5 @@
 package com.alikizilcan.gamelib.ui.list
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
@@ -50,6 +49,7 @@ class GameListViewModel @Inject constructor(
                     is Resource.Error -> {
                         _errorState.value = resource.exception?.message ?: ""
                         _isLoading.value = false
+                        _hasNoResult.value = true
                     }
                     is Resource.Loading -> {
                         _isLoading.value = true
