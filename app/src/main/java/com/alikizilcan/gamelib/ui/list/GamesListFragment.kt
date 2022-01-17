@@ -46,7 +46,8 @@ class GamesListFragment : BaseFragment() {
             gamesList.observe(viewLifecycleOwner) {
                 when {
                     it.size > 3 -> {
-                        gamePagerAdapter.submitList(it.subList(0, 3))
+
+                        gamePagerAdapter.submitList(it.subList(0, 5))
                         gameListAdapter.submitList(it)
                     }
                     viewModel.searchText.value!!.length >= 3 -> {
@@ -57,6 +58,9 @@ class GamesListFragment : BaseFragment() {
             }
             searchText.observe(viewLifecycleOwner) {
                 searchGame(it)
+            }
+            errorState.observe(viewLifecycleOwner) {
+                showSnackbar(it, view)
             }
         }
 

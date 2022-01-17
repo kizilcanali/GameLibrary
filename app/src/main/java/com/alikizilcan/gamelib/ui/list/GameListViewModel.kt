@@ -15,7 +15,7 @@ import javax.inject.Inject
 @HiltViewModel
 class GameListViewModel @Inject constructor(
     private val gameUseCase: GameUseCase
-    ) : BaseViewModel() {
+) : BaseViewModel() {
 
     private val _gamesList: MutableLiveData<List<Game>> = MutableLiveData()
     val gamesList: LiveData<List<Game>> = _gamesList
@@ -41,10 +41,10 @@ class GameListViewModel @Inject constructor(
         baseNavigation.navigate(action)
     }
 
-    private fun fetchAllGames(){
+    private fun fetchAllGames() {
         viewModelScope.launch {
             gameUseCase.listAllGames().collect { resource ->
-                when(resource){
+                when (resource) {
                     is Resource.Success -> {
                         _gamesList.value = resource.data!!
                         wholeList = resource.data
@@ -64,12 +64,12 @@ class GameListViewModel @Inject constructor(
         }
     }
 
-    fun searchGame(searchTextInput: String?){
+    fun searchGame(searchTextInput: String?) {
         viewModelScope.launch {
             gameUseCase.getSearchedGames(searchTextInput).collect {
-                if (searchText.value!!.length >= 3){
+                if (searchText.value!!.length >= 3) {
                     _gamesList.value = it
-                }else if (_gamesList.value?.size != 20){
+                } else if (_gamesList.value?.size != 20) { 
                     _gamesList.value = wholeList
                 }
             }
