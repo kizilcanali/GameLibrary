@@ -45,7 +45,7 @@ class GamesListFragment : BaseFragment() {
         with(viewModel!!) {
             gamesList.observe(viewLifecycleOwner) {
                 when {
-                    it.size > 3 -> {
+                    it.size > 3 -> { //???
 
                         gamePagerAdapter.submitList(it.subList(0, 5))
                         gameListAdapter.submitList(it)

@@ -12,8 +12,11 @@ class GamesListAdapter : ListAdapter<Game, GamesListAdapter.GameHolder>(DIFF_CAL
 
     var itemClickListener: (Game) -> Unit = {}
 
-    class GameHolder(private val binding : ListGameItemBinding, private val itemClickListener: (Game) -> Unit) : RecyclerView.ViewHolder(binding.root){
-        fun bind(game: Game){
+    class GameHolder(
+        private val binding: ListGameItemBinding,
+        private val itemClickListener: (Game) -> Unit
+    ) : RecyclerView.ViewHolder(binding.root) {
+        fun bind(game: Game) {
             binding.baseModel = game
             binding.executePendingBindings()
 
@@ -34,11 +37,13 @@ class GamesListAdapter : ListAdapter<Game, GamesListAdapter.GameHolder>(DIFF_CAL
         holder.bind(getItem(position))
     }
 
-    companion object{
+    companion object {
         val DIFF_CALLBACK = object : DiffUtil.ItemCallback<Game>() {
-            override fun areItemsTheSame(oldItem: Game, newItem: Game): Boolean = oldItem.id == newItem.id
+            override fun areItemsTheSame(oldItem: Game, newItem: Game): Boolean =
+                oldItem.id == newItem.id
 
-            override fun areContentsTheSame(oldItem: Game, newItem: Game): Boolean = oldItem == newItem
+            override fun areContentsTheSame(oldItem: Game, newItem: Game): Boolean =
+                oldItem == newItem
 
         }
     }

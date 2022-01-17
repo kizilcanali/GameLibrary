@@ -32,7 +32,7 @@ object NetworkModule {
     @Provides
     fun provideHttpClient(
         loggingIntercepter: HttpLoggingInterceptor,
-        ): OkHttpClient {
+    ): OkHttpClient {
         return OkHttpClient.Builder()
             .addNetworkInterceptor(loggingIntercepter)
             .build()

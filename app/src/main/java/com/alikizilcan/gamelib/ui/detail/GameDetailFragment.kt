@@ -1,18 +1,12 @@
 package com.alikizilcan.gamelib.ui.detail
 
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.navArgs
-import com.alikizilcan.gamelib.R
 import com.alikizilcan.gamelib.databinding.FragmentGameDetailBinding
-import com.alikizilcan.gamelib.domain.GameDetailUseCase
 import com.alikizilcan.gamelib.infra.bases.BaseFragment
-import com.alikizilcan.gamelib.infra.bases.BaseViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -41,7 +35,9 @@ class GameDetailFragment : BaseFragment() {
             fetchGame()
             getGameByIdFromLocal()
 
-            //errorlivedata
+            errorState.observe(viewLifecycleOwner){
+                showSnackbar(it, requireView())
+            }
         }
     }
 

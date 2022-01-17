@@ -29,9 +29,6 @@ class GameDetailViewModel @Inject constructor(
     private val _isLoading: MutableLiveData<Boolean> = MutableLiveData()
     val isLoading: LiveData<Boolean> = _isLoading
 
-    private val _hasNoResult: MutableLiveData<Boolean> = MutableLiveData()
-    val hasNoResult: LiveData<Boolean> = _hasNoResult
-
     private val _errorState: MutableLiveData<String> = MutableLiveData()
     val errorState: LiveData<String> = _errorState
 

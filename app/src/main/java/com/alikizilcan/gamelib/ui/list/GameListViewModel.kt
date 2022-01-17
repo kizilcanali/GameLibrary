@@ -69,7 +69,7 @@ class GameListViewModel @Inject constructor(
             gameUseCase.getSearchedGames(searchTextInput).collect {
                 if (searchText.value!!.length >= 3) {
                     _gamesList.value = it
-                } else if (_gamesList.value?.size != 20) { 
+                } else if (_gamesList.value?.size != 20) { //???
                     _gamesList.value = wholeList
                 }
             }
