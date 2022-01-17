@@ -18,6 +18,7 @@ class GameUseCase @Inject constructor(
     private val gameMapper: GameMapper,
     private val repository: GameRepository,
     private val gameEntityMapper: GameEntityMapper,
+    private val gameEntityToGameMapper: GameEntityToGameMapper
 ) {
 
     fun listAllGames(): Flow<Resource<List<Game>>> {
@@ -30,6 +31,14 @@ class GameUseCase @Inject constructor(
             }
             .onStart { emit(Resource.Loading) }
             .catch { emit(Resource.Error(it)) }
+    }
+
+    fun getSearchedGames(searchText: String?): Flow<List<Game>>{
+        return repository.getSearchedGames(searchText).map {
+            it.map { entity ->
+                gameEntityToGameMapper.mapFromGameEntity(entity)
+            }
+        }
     }
 
     private suspend fun saveGames(games: GamesResponse){

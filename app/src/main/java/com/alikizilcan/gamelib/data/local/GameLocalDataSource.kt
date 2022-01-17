@@ -8,4 +8,5 @@ class GameLocalDataSource @Inject constructor(private val gameDao: GameDao) {
     suspend fun setFavoriteGame(isFav: Boolean, id:Int) = gameDao.setFavoriteGame(isFav, id)
     suspend fun getFavorites() = gameDao.getFavorites()
     suspend fun getGameById(id: Int) = gameDao.getGameById(id)
+    suspend fun getSearchedGames(searchText: String?) = gameDao.getSearchedGames(searchText)
 }

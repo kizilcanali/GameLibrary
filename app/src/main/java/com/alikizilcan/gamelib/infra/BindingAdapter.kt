@@ -20,3 +20,7 @@ fun isVisible(view: View, state: Boolean){
     view.isVisible = state
 }
 
+@BindingAdapter("visibilityWhenSearch")
+fun changeVisibility(view: View, query: String){
+    view.isVisible = query.length < 3
+}

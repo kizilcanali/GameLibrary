@@ -29,6 +29,9 @@ class GameListViewModel @Inject constructor(
     private val _errorState: MutableLiveData<String> = MutableLiveData()
     val errorState: LiveData<String> = _errorState
 
+    val searchText: MutableLiveData<String?> = MutableLiveData("")
+    private var wholeList: List<Game> = listOf()
+
     init {
         fetchAllGames()
     }
@@ -44,6 +47,7 @@ class GameListViewModel @Inject constructor(
                 when(resource){
                     is Resource.Success -> {
                         _gamesList.value = resource.data!!
+                        wholeList = resource.data
                         _isLoading.value = false
                     }
                     is Resource.Error -> {
@@ -55,6 +59,18 @@ class GameListViewModel @Inject constructor(
                         _isLoading.value = true
                         _hasNoResult.value = false
                     }
+                }
+            }
+        }
+    }
+
+    fun searchGame(searchTextInput: String?){
+        viewModelScope.launch {
+            gameUseCase.getSearchedGames(searchTextInput).collect {
+                if (searchText.value!!.length >= 3){
+                    _gamesList.value = it
+                }else if (_gamesList.value?.size != 20){
+                    _gamesList.value = wholeList
                 }
             }
         }

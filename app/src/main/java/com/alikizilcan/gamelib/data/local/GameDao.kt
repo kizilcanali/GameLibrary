@@ -22,4 +22,7 @@ interface GameDao {
 
     @Query("SELECT * FROM games WHERE id = :id")
     suspend fun getGameById(id: Int): GameEntity
+
+    @Query("SELECT * FROM games WHERE name LIKE '%' || :searchText || '%' ")
+    suspend fun getSearchedGames(searchText: String?): List<GameEntity>
 }

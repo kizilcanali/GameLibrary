@@ -20,5 +20,9 @@ class GameRepository @Inject constructor(
         Resource.Success(it)
     }
 
+    fun getSearchedGames(searchText: String?): Flow<List<GameEntity>> = flow {
+        emit(gameLocalDataSource.getSearchedGames(searchText))
+    }
+
     suspend fun saveGames(games: List<GameEntity>) = gameLocalDataSource.insertAllGames(games)
 }

@@ -35,19 +35,32 @@ class GamesListFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.apply {
-
             gamesRecyclerView.adapter = gameListAdapter
             viewPager.adapter = gamePagerAdapter
-
-
-            viewModel!!.gamesList.observe(viewLifecycleOwner){
-                gameListAdapter.submitList(it)
-                gamePagerAdapter.submitList(it)
-                viewPagerCircleIndicator.setViewPager(viewPager)
-            }
         }
+
         gameListAdapter.itemClickListener = viewModel.itemClickListener
         gamePagerAdapter.itemClickListener = viewModel.itemClickListener
+
+        with(viewModel!!) {
+            gamesList.observe(viewLifecycleOwner) {
+                when {
+                    it.size > 3 -> {
+                        gamePagerAdapter.submitList(it.subList(0, 3))
+                        gameListAdapter.submitList(it)
+                    }
+                    viewModel.searchText.value!!.length >= 3 -> {
+                        gameListAdapter.submitList(it)
+                    }
+                }
+                binding.viewPagerCircleIndicator.setViewPager(binding.viewPager)
+            }
+            searchText.observe(viewLifecycleOwner) {
+                searchGame(it)
+            }
+        }
+
+
     }
 
 }

@@ -20,8 +20,9 @@
         android:layout_height="200dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textSearchInputLayout"
         android:layout_margin="5dp"
+        visibilityWhenSearch="@{viewModel.searchText}"
         />
 
     <me.relex.circleindicator.CircleIndicator3
@@ -31,7 +32,31 @@
         app:layout_constraintTop_toBottomOf="@id/viewPager"
         app:ci_drawable="@color/white"
         android:layout_marginTop="5dp"
+        visibilityWhenSearch="@{viewModel.searchText}"
         />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textSearchInputLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:hint="Search Game"
+        android:textColorHint="@color/white"
+        app:hintTextColor="@color/white"
+        app:boxBackgroundColor="#202020"
+        app:endIconDrawable="@drawable/ic_search"
+        app:endIconMode="custom"
+        app:endIconTint="@color/white"
+        app:boxStrokeColor="@color/white"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:text="@={viewModel.searchText}"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/gamesRecyclerView"
