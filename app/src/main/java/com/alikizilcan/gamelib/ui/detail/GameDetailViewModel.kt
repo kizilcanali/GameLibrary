@@ -71,4 +71,5 @@ class GameDetailViewModel @Inject constructor(
             gameDetailUseCase.updateFavorite(!_isFav.value!!, gameId)
         }
     }
+
 }

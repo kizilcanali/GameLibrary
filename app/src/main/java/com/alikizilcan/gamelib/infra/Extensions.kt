@@ -17,3 +17,4 @@ fun List<GenreResponse>.mergeTexts(genres: List<GenreResponse>): String{
     }
     return str
 }
+

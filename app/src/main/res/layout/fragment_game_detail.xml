@@ -1,169 +1,166 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <layout>
+
     <data>
+
         <variable
             name="viewModel"
             type="com.alikizilcan.gamelib.ui.detail.GameDetailViewModel" />
     </data>
-    <androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        tools:context=".ui.detail.GameDetailFragment"
-        android:background="#151515">
+        android:background="#151515"
+        tools:context=".ui.detail.GameDetailFragment">
 
         <TextView
             android:id="@+id/gameName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:text="Grand Theft Auto V"
-            android:textStyle="bold"
-            android:textSize="26sp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:textColor="@color/white"
-            android:text="@{viewModel.game.name}"
             android:fontFamily="serif-monospace"
-            />
+            android:text="@{viewModel.game.name}"
+            android:textColor="@color/white"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Grand Theft Auto V" />
+
 
         <androidx.appcompat.widget.AppCompatCheckBox
             android:id="@+id/imageViewFavoriteIcon"
-            android:layout_width="15dp"
-            android:layout_height="15dp"
-            android:button="@drawable/favorite_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginStart="10dp"
+            android:button="@drawable/favorite_state"
             android:checked="@{viewModel.isFav}"
             android:onClick="@{() -> viewModel.addFavorite()}"
-            android:buttonTint="#F44336"
+            app:layout_constraintBottom_toTopOf="@id/gameImage"
             app:layout_constraintStart_toEndOf="@id/gameReleaseDateText"
-            app:layout_constraintTop_toTopOf="@id/gameReleaseDateText"
-            app:layout_constraintBottom_toBottomOf="@id/gameReleaseDateText"
-            android:layout_marginStart="10dp"
-            />
+            app:layout_constraintTop_toBottomOf="@id/gameName" />
+
 
         <TextView
             android:id="@+id/gameRatingText"
             android:layout_width="25sp"
             android:layout_height="24sp"
+            android:gravity="center"
+            android:text="@{viewModel.game.rating}"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/ratingIcon"
             app:layout_constraintEnd_toStartOf="@id/ratingIcon"
             app:layout_constraintTop_toTopOf="@id/ratingIcon"
-            app:layout_constraintBottom_toBottomOf="@id/ratingIcon"
-            android:gravity="center"
-            android:textSize="16sp"
-            tools:text="4.6"
-            android:textStyle="bold"
-            android:textColor="@color/white"
-            android:text="@{viewModel.game.rating}"
-            />
+            tools:text="4.6" />
+
         <ImageView
             android:id="@+id/ratingIcon"
             android:layout_width="25dp"
             android:layout_height="24dp"
+            android:layout_marginEnd="5dp"
+            android:src="@drawable/star"
+            app:layout_constraintBottom_toBottomOf="@id/metacritic"
             app:layout_constraintEnd_toStartOf="@id/metacritic"
             app:layout_constraintTop_toTopOf="@id/metacritic"
-            app:layout_constraintBottom_toBottomOf="@id/metacritic"
-            android:src="@drawable/star"
-            app:tint="#FFEB3B"
-            android:layout_marginEnd="5dp"
-            />
+            app:tint="#FFEB3B" />
+
         <TextView
             android:id="@+id/gameReleaseDateText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/gameName"
-            app:layout_constraintStart_toStartOf="@id/gameName"
-            tools:text="12-12-2012"
-            android:textColor="@color/white"
-            android:text="@{viewModel.game.releaseDate}"
             android:fontFamily="serif-monospace"
-            />
+            android:text="@{viewModel.game.releaseDate}"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="@id/gameName"
+            app:layout_constraintTop_toBottomOf="@id/gameName"
+            tools:text="12-12-2012" />
 
         <ImageView
             android:id="@+id/gameImage"
+            imageUrl="@{viewModel.game.image}"
             android:layout_width="match_parent"
             android:layout_height="250dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/gameReleaseDateText"
-            tools:src="@tools:sample/backgrounds/scenic"
             android:layout_marginTop="10dp"
-            android:scaleType="centerCrop"
-            imageUrl="@{viewModel.game.image}"
             android:padding="10dp"
-            />
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/gameReleaseDateText"
+            tools:src="@tools:sample/backgrounds/scenic" />
+
         <TextView
             android:id="@+id/gameGenres"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/gameImage"
-            app:layout_constraintStart_toStartOf="@id/gameName"
-            app:layout_constraintEnd_toStartOf="@id/gameRatingText"
-            tools:text="Genres: Action, RPG, ETC."
-            android:textStyle="bold"
+            android:layout_marginTop="7dp"
+            android:fontFamily="serif-monospace"
+            android:text="@{viewModel.game.genres}"
             android:textColor="@color/white"
             android:textSize="16sp"
-            android:layout_marginTop="7dp"
-            android:text="@{viewModel.game.genres}"
-            android:fontFamily="serif-monospace"
-            />
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/gameRatingText"
+            app:layout_constraintStart_toStartOf="@id/gameName"
+            app:layout_constraintTop_toBottomOf="@id/gameImage"
+            tools:text="Genres: Action, RPG, ETC." />
+
         <TextView
             android:id="@+id/metacritic"
             android:layout_width="25sp"
             android:layout_height="24dp"
-            app:layout_constraintTop_toTopOf="@id/gameGenres"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="@id/gameGenres"
-            android:layout_marginEnd="20dp"
-            tools:text="76"
             android:layout_marginTop="10dp"
-            android:textStyle="bold"
-            android:textColor="@color/white"
+            android:layout_marginEnd="20dp"
             android:background="#8BC34A"
             android:gravity="center"
             android:text="@{viewModel.game.metacritic}"
-            />
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/gameGenres"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/gameGenres"
+            tools:text="76" />
+
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="242dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/metacritic"
             app:layout_constraintBottom_toBottomOf="parent"
-            >
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/metacritic">
 
             <TextView
                 android:id="@+id/gameDescriptionText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:fontFamily="serif-monospace"
+                android:justificationMode="inter_word"
+                android:padding="10dp"
+                android:paddingHorizontal="10dp"
+                android:text="@{viewModel.game.description}"
                 android:textColor="@color/white"
                 android:textSize="16sp"
-                android:paddingHorizontal="10dp"
-                tools:text="@tools:sample/lorem/random"
-                android:text="@{viewModel.game.description}"
-                android:fontFamily="serif-monospace"
-                android:padding="10dp"
-                android:justificationMode="inter_word"
-                />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="@tools:sample/lorem/random" />
         </ScrollView>
 
         <androidx.core.widget.ContentLoadingProgressBar
             android:id="@+id/loadingProgressBar"
+            style="?android:attr/progressBarStyleLarge"
+            isVisible="@{viewModel.isLoading}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            isVisible="@{viewModel.isLoading}"
             android:indeterminate="true"
-            style="?android:attr/progressBarStyleLarge"
-            />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

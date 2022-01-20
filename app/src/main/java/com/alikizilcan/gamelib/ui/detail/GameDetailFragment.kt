@@ -30,16 +30,14 @@ class GameDetailFragment : BaseFragment() {
         return binding.root
     }
 
-    private fun setupVM(){
-        with(viewModel){
+    private fun setupVM() {
+        with(viewModel) {
             fetchGame()
             getGameByIdFromLocal()
 
-            errorState.observe(viewLifecycleOwner){
+            errorState.observe(viewLifecycleOwner) {
                 showSnackbar(it, requireView())
             }
         }
     }
-
-
 }
