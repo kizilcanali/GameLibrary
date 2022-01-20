@@ -16,9 +16,10 @@ Game Library application allows to users to view information about games.
 
 ## Screenshots
  <div style="display:flex" align="center">
-  <img src="https://github.com/kizilcanali/GameLibrary/blob/main/screenshots/home.png?raw=true" width=200 />
-  <img src="https://github.com/kizilcanali/GameLibrary/blob/main/screenshots/search.png?raw=true" width=200 />
-  <img src="https://github.com/kizilcanali/GameLibrary/blob/main/screenshots/detail.png?raw=true" width=200 />
-  <img src="https://github.com/kizilcanali/GameLibrary/blob/main/screenshots/fav.png?raw=true" width=200 />
+  <img src="https://github.com/kizilcanali/GameLibrary/blob/main/screenshots/home.png?raw=true" width=150 />
+  <img src="https://github.com/kizilcanali/GameLibrary/blob/main/screenshots/search.png?raw=true" width=150 />
+  <img src="https://github.com/kizilcanali/GameLibrary/blob/main/screenshots/detail.png?raw=true" width=150 />
+  <img src="https://github.com/kizilcanali/GameLibrary/blob/main/screenshots/detail_fav.png?raw=true" width=150 />
+  <img src="https://github.com/kizilcanali/GameLibrary/blob/main/screenshots/fav.png?raw=true" width=150 />
 </div>
 
